@@ -63,6 +63,16 @@ Next, I tried using LFI with "index.php?cmd=cat /etc/passwd", and repeated the p
 
 I searched around file system looking for credentials or an ssh key, but no luck. 
 I then decided to step this up a notch and try to execute a revshell to get Remote Code Execution(RCE). 
-I use a python shell from revhsells.com.
+I use a php exec shell, and url encode it:
+
+Then paste it in after "index.php?cmd=" and set up the netcat listener on your choosen port.
+I got the revshell as wwww-data and upgraded it:
+
+![shell](https://github.com/user-attachments/assets/cbf9f742-e95a-4fab-bf0e-0430c6cb6291)
+
+
+
+
+
 
 
