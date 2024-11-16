@@ -70,6 +70,18 @@ I got the revshell as wwww-data and upgraded it:
 
 ![shell](https://github.com/user-attachments/assets/cbf9f742-e95a-4fab-bf0e-0430c6cb6291)
 
+One of the first things I noticed when exploring the file system, is the images directory has content that we can now access. I ran the file cmd on both images and the oneforall.jpg contains data. I'll use a python3 websever to transfer the file to my attack box:
+
+![oneforall jpg](https://github.com/user-attachments/assets/f2096009-4378-4181-90ec-0acf0cab0288)
+
+![wget](https://github.com/user-attachments/assets/7fb0c16c-5478-441f-8f14-3673772a680a)
+
+When trying to open the oneforall.jpg we get this error message:
+
+![open_oneforall](https://github.com/user-attachments/assets/f5a1ef06-505b-448b-a118-ba621ce5b7d7)
+
+This led me to believe that the file is corrupt and to use hexeditor to check the magic numbers of the file.
+
 
 
 
