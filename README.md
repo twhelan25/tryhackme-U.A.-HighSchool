@@ -92,8 +92,17 @@ Now open the file with hexedit and we'll change the magic numbers to match this 
 
 ![hexedit](https://github.com/user-attachments/assets/0c8af332-9848-47d9-8ad1-0204056de6c4)
 
+I found that fixing the first two groups did the trick.
 
+Now, if we run file on oneforall.jpg, it appears normal and we can open the image.
 
+![one_correct](https://github.com/user-attachments/assets/28722fb0-e6f2-43f6-a9f6-46231961a40d)
+
+Next I ran steghide --extract -sf oneforall.jpg to see if there is hidden content but it prompted for a password. At first I ran stegcracker on it, but while I was exploring the file system I found the password:
+
+![steghide](https://github.com/user-attachments/assets/9ae89e1b-7945-44c3-8632-21b2a6dfc814)
+
+![stegpasswd](https://github.com/user-attachments/assets/7f0101b3-a707-4bbe-b729-095d20be82f5)
 
 
 
