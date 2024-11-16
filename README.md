@@ -104,6 +104,24 @@ Next I ran steghide --extract -sf oneforall.jpg to see if there is hidden conten
 
 ![stegpasswd](https://github.com/user-attachments/assets/7f0101b3-a707-4bbe-b729-095d20be82f5)
 
+The password for oneforall.jpg works and creds.txt is extracted, which contains the ssh passwd for deku:
+
+![deku_passwd](https://github.com/user-attachments/assets/2b7cd447-47ba-4c25-ae4d-d6cd529255cc)
+
+Once we're logged on as deku, we can cat user.txt. I also ran sudo -l and see that we can run feedback.sh with sudo:
+
+![user txt sudo-l](https://github.com/user-attachments/assets/ea628426-5bef-4791-87ea-326643651732)
+
+I navigated to this file location and ran cat on it to see what it does:
+
+![feedback sh](https://github.com/user-attachments/assets/78712ec2-25fc-47ca-9cca-2f12023ed2e5)
+
+As long as the prohibited characters aren't used, the script will allow us to make system changes, which can be exploited to become root. I tried several different methods to get root, like writting ssh keys and writing them to root's .ssh directory, but my favorite method is to add unlimited privileges for deku:
+
+![root](https://github.com/user-attachments/assets/8cbb1e80-3f59-4979-9fa8-45599d283186)
+
+And we can now read the root flag! I hope you enjoyed this CTF!
+
 
 
 
