@@ -80,7 +80,18 @@ When trying to open the oneforall.jpg we get this error message:
 
 ![open_oneforall](https://github.com/user-attachments/assets/f5a1ef06-505b-448b-a118-ba621ce5b7d7)
 
-This led me to believe that the file is corrupt and to use hexeditor to check the magic numbers of the file.
+This led me to believe that the file is corrupt and to use hexedit to check the magic numbers of the file.
+
+First I just googled magic numbers jpg and then navigated to the wiki site for "List of file signatures".
+
+We we scroll down to jpg on the list, we see what the magic numbers are supposed to be:
+
+![jpg_magic](https://github.com/user-attachments/assets/943d18ea-46da-489a-9f33-9445b8c18fd6)
+
+Now open the file with hexedit and we'll change the magic numbers to match this file signature.
+
+![hexedit](https://github.com/user-attachments/assets/0c8af332-9848-47d9-8ad1-0204056de6c4)
+
 
 
 
