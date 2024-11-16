@@ -34,3 +34,35 @@ Target IP: This is a placeholder for the target IP address you want to scan. In 
 -oN
 
 Output in Normal Format: This option saves the scan results in a plain text file format. After -oN, specify a filename where you want to store the output.
+
+The scan reveals many open ports. Let's check out the webserver on tcp/80:
+
+![website80](https://github.com/user-attachments/assets/37f54b95-96ad-4772-aa43-37831f79491c)
+
+There doesn't seem to be much here. The gobuster scan reveals somethings of interest:
+
+![assests](https://github.com/user-attachments/assets/ffff1c62-a5c8-43f3-8e89-0054c4f9cc46)
+
+There doesn't seem to be content in the assets dir, but let's run another gobuster scan on this dir:
+
+![buster2](https://github.com/user-attachments/assets/af5bc092-39a7-482e-97b3-831510da8fff)
+
+The images dir is forbidden, but the index.php dir just shows a blank page. I tested the url for php Local File Inclusion (LFI) with the ls cmd and it seemed to return the result base 64 encoded:
+
+![ls](https://github.com/user-attachments/assets/ab93eefa-1ba7-4ba8-9545-b22e60cade82)
+
+If we unencode the result it shows a directory listing:
+
+![base64_ls](https://github.com/user-attachments/assets/0aca6969-1403-4c50-8c2f-071492f4a6ac)
+
+Next, I tried using LFI with "index.php?cmd=cat /etc/passwd", and repeated the previous process of decoding the output:
+
+/etc/passwd reveals a user deku:
+
+![deku](https://github.com/user-attachments/assets/805e16cb-0308-45d5-b6cd-edcc6dd1b065)
+
+I searched around file system looking for credentials or an ssh key, but no luck. 
+I then decided to step this up a notch and try to execute a revshell to get Remote Code Execution(RCE). 
+I use a python shell from revhsells.com.
+
+
